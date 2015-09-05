@@ -15093,6 +15093,8 @@ let
     tex = tetex;
   };
 
+  latexdraw = callPackage ../tools/typesetting/tex/latexdraw {};
+
   lkproof = callPackage ../tools/typesetting/tex/lkproof { };
 
   mysqlWorkbench = newScope gnome ../applications/misc/mysql-workbench {
