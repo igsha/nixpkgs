@@ -9485,6 +9485,28 @@ in modules // {
     };
   };
 
+  image-scrapper = buildPythonPackage rec {
+    version = "2.0.7";
+    pname = "ImageScraper";
+    name = "${pname}-${version}";
+
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/source/I/${pname}/${name}.tar.gz";
+      md5 = "5064356dd451ef6dc5375c5e0f71943b";
+    };
+
+    # ImportError: No module named tests
+    doCheck = false;
+    propagatedBuildInputs = with self; [ lxml requests2 future setproctitle simplepool ];
+
+    meta = {
+      description = "A simple image scraper to download all images from a given url";
+      homepage = "https://github.com/sananth12/ImageScraper";
+      license = licenses.gpl3;
+      #maintainers = maintainers.igsha;
+    };
+  };
+
   importlib = buildPythonPackage rec {
     name = "importlib-1.0.2";
 
@@ -18116,6 +18138,24 @@ in modules // {
     '';
   };
 
+  setproctitle = buildPythonPackage rec {
+    version = "1.1.9";
+    pname = "setproctitle";
+    name = "${pname}-${version}";
+
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/source/s/${pname}/${name}.tar.gz";
+      md5 = "95d9e56c69437246460a20804961d70d";
+    };
+
+    meta = {
+      homepage = https://github.com/dvarrazzo/py-setproctitle;
+      description = "A Python module to customize the process title";
+      license = licenses.bsd3;
+      #maintainers = with maintainers; [ igsha ];
+    };
+  };
+
   setuptools_scm = buildPythonPackage rec {
     name = "setuptools_scm-${version}";
     version = "1.7.0";
@@ -18286,6 +18326,24 @@ in modules // {
       homepage = https://pypi.python.org/pypi/SimpleParse;
       platforms = platforms.all;
       maintainers = with maintainers; [ DamienCassou ];
+    };
+  };
+
+  simplepool = buildPythonPackage rec {
+    version = "0.1";
+    pname = "SimplePool";
+    name = "${pname}-${version}";
+
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/source/S/${pname}/${name}.tar.gz";
+      md5 = "651a02a72703eb8be5c398e4483a55a3";
+    };
+
+    meta = {
+      description = "Thread pool library for Humans";
+      homepage = http://github.com/srirams6/py-threadpool;
+      licenses = licenses.gpl3;
+      #maintainers = maintainers.igsha;
     };
   };
 
