@@ -10750,6 +10750,33 @@ in modules // {
     };
   };
 
+  keyrings-alt = buildPythonPackage rec {
+    name = "keyrings.alt-1.1";
+
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/source/k/keyrings.alt/${name}.tar.gz";
+      sha256 = "0yr0prr87pj74azjifzlkw2synj412vbxz2vwx6p88jgsgbklfyw";
+    };
+
+    buildInputs = with self;
+      [ fs gdata python_keyczar mock pyasn1 pycrypto pytest_28 six setuptools_scm pytestrunner ];
+
+    checkPhase = ''
+      py.test $out
+    '';
+
+    #tests_require='keyring[test]'
+    doCheck = false;
+
+    meta = {
+      description = "Alternate keyring implementations";
+      homepage    = https://github.com/jaraco/keyrings.alt;
+      license     = licenses.mit;
+      maintainers = [ maintainers.igsha ];
+      platforms   = platforms.unix;
+    };
+  };
+
   klaus = buildPythonPackage rec {
     version = "0.6.0";
     name = "klaus-${version}";

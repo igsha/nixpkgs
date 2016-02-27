@@ -5541,6 +5541,8 @@ let
 
   self = callPackage_i686 ../development/interpreters/self { };
 
+  selfspy = callPackage ../applications/misc/selfspy { };
+
   spark = callPackage ../applications/networking/cluster/spark { };
 
   spidermonkey = callPackage ../development/interpreters/spidermonkey { };
