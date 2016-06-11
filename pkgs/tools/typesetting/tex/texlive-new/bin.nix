@@ -89,6 +89,11 @@ core = stdenv.mkDerivation rec {
 
   installTargets = [ "install" "texlinks" ];
 
+  prePatch = ''
+    echo PATCH OF CORE
+    sed 's/PATH="$mydir:.*//g' -i texk/kpathsea/{mktexmf,mktexdir,mktexupd,mktextfm,mktexpk,mktexnam}
+  '';
+
   # TODO: perhaps improve texmf.cnf search locations
   postInstall = /* a few texmf-dist files are useful; take the rest from pkgs */ ''
     mv "$out/share/texmf-dist/web2c/texmf.cnf" .
@@ -153,6 +158,10 @@ core-big = stdenv.mkDerivation {
 
   preBuild = "cd texk/web2c";
   enableParallelBuilding = true;
+  prePatch = ''
+    echo PATCH OF CORE-BIG
+    sed 's/PATH="$mydir:.*//g' -i texk/kpathsea/{mktexmf,mktexdir,mktexupd,mktextfm,mktexpk,mktexnam}
+  '';
 
   # now distribute stuff into outputs, roughly as upstream TL
   # (uninteresting stuff remains in $out, typically duplicates from `core`)
