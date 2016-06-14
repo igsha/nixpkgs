@@ -6060,6 +6060,8 @@ in
 
   csslint = callPackage ../development/web/csslint { };
 
+  ctypes-sh = callPackage ../development/tools/ctypes-sh { };
+
   libcxx = llvmPackages.libcxx;
   libcxxabi = llvmPackages.libcxxabi;
 
