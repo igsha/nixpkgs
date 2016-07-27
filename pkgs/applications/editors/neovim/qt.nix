@@ -22,7 +22,7 @@ stdenv.mkDerivation {
 
     # Similar enough to FindMsgpack
     set(MSGPACK_INCLUDE_DIRS ${libmsgpack}/include PARENT_SCOPE)
-    set(MSGPACK_LIBRARIES msgpack PARENT_SCOPE)
+    set(MSGPACK_LIBRARIES msgpackc PARENT_SCOPE)
   '';
     in "echo '${use-msgpack}' > third-party/CMakeLists.txt";
 
