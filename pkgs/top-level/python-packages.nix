@@ -8144,12 +8144,12 @@ in modules // {
   };
 
   passlib = buildPythonPackage rec {
-    version = "1.6.2";
+    version = "1.6.5";
     name    = "passlib-${version}";
 
     src = pkgs.fetchurl {
       url = "mirror://pypi/p/passlib/passlib-${version}.tar.gz";
-      sha256 = "e987f6000d16272f75314c7147eb015727e8532a3b747b1a8fb58e154c68392d";
+      sha256 = "1z27wdxs5rj5xhhqfzvzn3yg682irkxw6dcs5jj7mcf97psk8gd8";
     };
 
     buildInputs = with self; [ nose pybcrypt];
@@ -17109,11 +17109,11 @@ in modules // {
 
   fasteners = buildPythonPackage rec {
     name = "fasteners-${version}";
-    version = "0.13.0";
+    version = "0.14.1";
 
     src = pkgs.fetchurl {
-      url = "mirror://pypi/f/fasteners/fasteners-0.13.0.tar.gz";
-      sha256 = "0nghdq3zihiqg10dp76ls7yn44m5wjncyz7fk8isagkrspkh9a3n";
+      url = "mirror://pypi/f/fasteners/${name}.tar.gz";
+      sha256 = "063y20kx01ihbz2mziapmjxi2cd0dq48jzg587xdsdp07xvpcz22";
     };
 
     propagatedBuildInputs = with self; [ six monotonic testtools ];
@@ -17586,6 +17586,27 @@ in modules // {
       description = "Appendable key-value storage";
       license = with licenses; [ bsd3 ];
       homepage = http://github.com/dask/partd/;
+    };
+  };
+
+  patch = buildPythonPackage rec {
+    name = "${pname}-${version}";
+    version = "1.16";
+    pname = "patch";
+
+    src = pkgs.fetchurl {
+      url = "mirror://pypi/p/${pname}/${name}.zip";
+      sha256 = "17xxfpyr4llzkbrrl7n36mw17ykw7ld6yj94mk459w6gavrp6866";
+    };
+
+    sourceRoot = ".";
+
+    meta = {
+      description = "A library to parse and apply unified diffs";
+      homepage = https://github.com/techtonik/python-patch/;
+      license = licenses.mit;
+      platforms = platforms.all;
+      maintainers = maintainers.igsha;
     };
   };
 
@@ -19958,12 +19979,12 @@ in modules // {
   };
 
   pyjwt = buildPythonPackage rec {
-    version = "1.4.0";
+    version = "1.4.2";
     name = "pyjwt-${version}";
 
     src = pkgs.fetchurl {
       url = "http://github.com/progrium/pyjwt/archive/${version}.tar.gz";
-      sha256 = "118rzhpyvx1h4hslms4fdizyv6mnyd4g34fv089lvs116pj08k9c";
+      sha256 = "06vg84aicwkv0kli8i4jhg0kc6298cmh38ib058q01yxzk6q17gn";
     };
 
     propagatedBuildInputs = with self; [ pycrypto ecdsa ];

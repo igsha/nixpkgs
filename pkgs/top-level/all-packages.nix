@@ -1118,6 +1118,8 @@ in
 
   colordiff = callPackage ../tools/text/colordiff { };
 
+  conan = callPackage ../tools/package-management/conan { };
+
   concurrencykit = callPackage ../development/libraries/concurrencykit { };
 
   connect = callPackage ../tools/networking/connect { };
