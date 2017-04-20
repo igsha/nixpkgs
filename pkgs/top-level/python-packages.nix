@@ -22522,6 +22522,22 @@ in {
     };
   };
 
+  rst2pdf = buildPythonApplication rec {
+    pname = "rst2pdf";
+    name = "${pname}-${version}";
+    version = "0.93";
+
+    src = pkgs.fetchurl {
+      url = "mirror://pypi/r/${pname}/${name}.tar.gz";
+      sha256 = "08j2w67nilczn1i5r7h22vag9677777777777777777777777777";
+    };
+
+    meta = with stdenv.lib; {
+      description = "Convert restructured text to PDF via reportlab";
+      homepage = https://github.com/rst2pdf/rst2pdf/;
+    };
+  };
+
   pysolr = buildPythonPackage rec {
     name = "pysolr-${version}";
     version = "3.3.3";
